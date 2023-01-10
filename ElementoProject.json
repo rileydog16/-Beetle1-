@@ -21,8 +21,8 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Green-ish Beetles!",
-                "color": "green",
+                "content": "Beetles!",
+                "color": "gray",
                 "fontSize": 32
               },
               "elements": []
