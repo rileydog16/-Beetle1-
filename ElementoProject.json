@@ -22,7 +22,7 @@
               "kind": "Text",
               "properties": {
                 "content": "Big Beetles!",
-                "color": "green",
+                "color": "blue",
                 "fontSize": 48
               },
               "elements": []
