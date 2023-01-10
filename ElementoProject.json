@@ -26,6 +26,15 @@
                 "fontSize": 48
               },
               "elements": []
+            },
+            {
+              "id": "text_2",
+              "name": "Text 2",
+              "kind": "Text",
+              "properties": {
+                "content": "All about insects"
+              },
+              "elements": []
             }
           ]
         }
