@@ -1,2 +1,0 @@
-const isBackgroundFixedComponent = (name: string) => (ModelComponents[name as keyof typeof ModelComponents] as Element).componentType === 'backgroundFixed'
-
