@@ -35,6 +35,15 @@
                 "content": "All about insects and other creepy-crawlies"
               },
               "elements": []
+            },
+            {
+              "id": "image_1",
+              "name": "Beetle Image",
+              "kind": "Image",
+              "properties": {
+                "source": "Tansy_Beetle.jpg"
+              },
+              "elements": []
             }
           ]
         }
