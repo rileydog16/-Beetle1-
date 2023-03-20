@@ -44,6 +44,15 @@
                 "source": "Tansy_Beetle.jpg"
               },
               "elements": []
+            },
+            {
+              "id": "image_2",
+              "name": "Gazelle Image",
+              "kind": "Image",
+              "properties": {
+                "source": "GazellePic.webp"
+              },
+              "elements": []
             }
           ]
         }
