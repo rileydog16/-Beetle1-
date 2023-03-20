@@ -50,7 +50,7 @@
               "name": "Gazelle Image",
               "kind": "Image",
               "properties": {
-                "source": "GazellePic.webp"
+                "source": "GazelleImage.webp"
               },
               "elements": []
             }
