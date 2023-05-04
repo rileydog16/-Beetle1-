@@ -21,10 +21,17 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Green Beetles!",
+                "content": "Giant Green Beetles!!",
                 "color": "blue",
                 "fontSize": 48
               },
+              "elements": []
+            },
+            {
+              "id": "textinput_1",
+              "name": "Beetle Species",
+              "kind": "TextInput",
+              "properties": {},
               "elements": []
             },
             {
@@ -55,6 +62,132 @@
               "elements": []
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "datatypes_1",
+      "name": "Data Types",
+      "kind": "DataTypes",
+      "properties": {},
+      "elements": [
+        {
+          "id": "recordtype_1",
+          "name": "Place",
+          "kind": "RecordType",
+          "properties": {},
+          "elements": [
+            {
+              "id": "texttype_1",
+              "name": "Name",
+              "kind": "TextType",
+              "properties": {},
+              "elements": []
+            },
+            {
+              "id": "texttype_2",
+              "name": "Location",
+              "kind": "TextType",
+              "properties": {
+                "description": "Where is it?",
+                "maxLength": 10
+              },
+              "elements": [
+                {
+                  "id": "rule_1",
+                  "name": "The Liverpool Rule",
+                  "kind": "Rule",
+                  "properties": {
+                    "description": "Anywhere but Liverpool",
+                    "formula": {
+                      "expr": "$value !== 'Liverpool'"
+                    }
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "booleantype_2",
+              "name": "Visited",
+              "kind": "TrueFalseType",
+              "properties": {
+                "description": "Have we been there?",
+                "basedOn": {
+                  "expr": "Greenness"
+                },
+                "required": true
+              },
+              "elements": []
+            },
+            {
+              "id": "numbertype_1",
+              "name": "Population",
+              "kind": "NumberType",
+              "properties": {
+                "description": "How many adults live there",
+                "min": 10
+              },
+              "elements": []
+            },
+            {
+              "id": "datetype_1",
+              "name": "Date Type 1",
+              "kind": "DateType",
+              "properties": {
+                "min": "2023-04-21T00:00:00.000Z",
+                "description": "This week"
+              },
+              "elements": []
+            },
+            {
+              "id": "enumtype_1",
+              "name": "Colours",
+              "kind": "ChoiceType",
+              "properties": {
+                "description": "Colours available",
+                "values": [
+                  "red",
+                  "green",
+                  "black"
+                ]
+              },
+              "elements": []
+            },
+            {
+              "id": "recordtype_2",
+              "name": "Address",
+              "kind": "RecordType",
+              "properties": {
+                "description": "How to find it"
+              },
+              "elements": [
+                {
+                  "id": "texttype_3",
+                  "name": "Street",
+                  "kind": "TextType",
+                  "properties": {},
+                  "elements": []
+                },
+                {
+                  "id": "texttype_4",
+                  "name": "Town",
+                  "kind": "TextType",
+                  "properties": {},
+                  "elements": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "booleantype_1",
+          "name": "Greenness",
+          "kind": "TrueFalseType",
+          "properties": {
+            "description": "Whether the beetle is green"
+          },
+          "elements": []
         }
       ]
     }
