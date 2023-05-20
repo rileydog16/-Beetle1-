@@ -21,9 +21,9 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Green Beetles!!",
-                "color": "blue",
-                "fontSize": 48
+                "content": "Giant Red Beetles!!!",
+                "color": "red",
+                "fontSize": 55
               },
               "elements": []
             },
@@ -48,7 +48,8 @@
               "name": "Beetle Image",
               "kind": "Image",
               "properties": {
-                "source": "Tansy_Beetle.jpg"
+                "source": "Tansy_Beetle.jpg",
+                "width": "50%"
               },
               "elements": []
             },
@@ -71,6 +72,15 @@
       "kind": "DataTypes",
       "properties": {},
       "elements": [
+        {
+          "id": "booleantype_1",
+          "name": "Greenness",
+          "kind": "TrueFalseType",
+          "properties": {
+            "description": "Whether the beetle is green"
+          },
+          "elements": []
+        },
         {
           "id": "recordtype_1",
           "name": "Place",
@@ -100,7 +110,7 @@
                   "properties": {
                     "description": "Anywhere but Liverpool",
                     "formula": {
-                      "expr": "$value !== 'Liverpool'"
+                      "expr": "$item !== 'Liverpool'"
                     }
                   },
                   "elements": []
@@ -125,7 +135,9 @@
               "name": "Population",
               "kind": "NumberType",
               "properties": {
-                "description": "How many adults live there",
+                "description": {
+                  "expr": "\"How many adults live there\" + Date.now()"
+                },
                 "min": 10
               },
               "elements": []
@@ -135,8 +147,7 @@
               "name": "Date Type 1",
               "kind": "DateType",
               "properties": {
-                "min": "2023-04-21T00:00:00.000Z",
-                "description": "This week"
+                "description": "This weeks"
               },
               "elements": []
             },
@@ -166,28 +177,27 @@
                   "id": "texttype_3",
                   "name": "Street",
                   "kind": "TextType",
-                  "properties": {},
+                  "properties": {
+                    "description": {
+                      "expr": "Flannel"
+                    }
+                  },
                   "elements": []
                 },
                 {
                   "id": "texttype_4",
                   "name": "Town",
                   "kind": "TextType",
-                  "properties": {},
+                  "properties": {
+                    "minLength": {
+                      "expr": "x + 3"
+                    }
+                  },
                   "elements": []
                 }
               ]
             }
           ]
-        },
-        {
-          "id": "booleantype_1",
-          "name": "Greenness",
-          "kind": "TrueFalseType",
-          "properties": {
-            "description": "Whether the beetle is green"
-          },
-          "elements": []
         }
       ]
     }
