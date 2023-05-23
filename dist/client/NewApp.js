@@ -1,5 +1,6 @@
-import * as Elemento from '/runtime/runtime.js'
-import {React} from '/runtime/runtime.js'
+const importUrl = `${window.location.origin}/runtime/runtime.js`
+const Elemento = await import(importUrl)
+const {React} = Elemento
 
 const {types: {ChoiceType, DateType, ListType, NumberType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
 
