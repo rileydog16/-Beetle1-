@@ -1,4 +1,4 @@
-const importUrl = `${window.location.origin}/runtime/runtime.js`
+const importUrl = `http://localhost:1234/runtime/runtime.js`
 const Elemento = await import(importUrl)
 const {React} = Elemento
 
@@ -33,7 +33,7 @@ function MainPage(props) {
     const BeetleSpecies = Elemento.useObjectState(pathWith('BeetleSpecies'), new TextInput.State({}))
 
     return React.createElement(Page, {id: props.path},
-        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'red'}, 'Giant Red Beetles!!!'),
+        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'blue'}, 'Giant Blue Beetles!!!'),
         React.createElement(TextInput, {path: pathWith('BeetleSpecies'), label: 'Beetle Species'}),
         React.createElement(TextElement, {path: pathWith('Text2')}, 'All about insects and other wiggly creatures'),
         React.createElement(Image, {path: pathWith('BeetleImage'), source: 'Tansy_Beetle.jpg', width: '50%'}),

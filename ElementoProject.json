@@ -21,8 +21,8 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Red Beetles!!!",
-                "color": "red",
+                "content": "Giant Blue Beetles!!!",
+                "color": "blue",
                 "fontSize": 55
               },
               "elements": []
