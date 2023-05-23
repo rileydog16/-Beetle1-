@@ -1,5 +1,5 @@
-import * as Elemento from './runtime.js'
-import {React} from './runtime.js'
+import * as Elemento from '/runtime/runtime.js'
+import {React} from '/runtime/runtime.js'
 
 const {types: {ChoiceType, DateType, ListType, NumberType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
 
