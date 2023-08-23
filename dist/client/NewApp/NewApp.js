@@ -4,7 +4,7 @@ const {React} = Elemento
 const {importModule, importHandlers} = Elemento
 const Func1 = await import('./files/Func1.js').then(...importHandlers('*'))
 
-const {types: {ChoiceType, DateType, ListType, NumberType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
+const {types: {ChoiceType, DateType, ListType, NumberType, DecimalType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
 
 // DataTypes_datatypes_1.js
 const Greenness = new TrueFalseType('Greenness', {description: 'Whether the beetle is green', required: false})

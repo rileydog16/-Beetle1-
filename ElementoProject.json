@@ -11,6 +11,16 @@
       "properties": {},
       "elements": [
         {
+          "id": "functionimport_1",
+          "name": "Func 1",
+          "kind": "FunctionImport",
+          "properties": {
+            "source": "Func1.js",
+            "exportName": "*"
+          },
+          "elements": []
+        },
+        {
           "id": "page_1",
           "name": "Main Page",
           "kind": "Page",
@@ -21,8 +31,8 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Blue Beetles!!!",
-                "color": "blue",
+                "content": "Giant Green Beetles!!!!",
+                "color": "green",
                 "fontSize": 55
               },
               "elements": []
@@ -31,7 +41,65 @@
               "id": "textinput_1",
               "name": "Beetle Species",
               "kind": "TextInput",
-              "properties": {},
+              "properties": {
+                "dataType": {
+                  "expr": "DataTypes_datatypes_1.SpeciesType"
+                },
+                "width": "100%"
+              },
+              "elements": []
+            },
+            {
+              "id": "numberinput_1",
+              "name": "Wingspan",
+              "kind": "NumberInput",
+              "properties": {
+                "dataType": {
+                  "expr": "DataTypes_datatypes_1.WingspanType"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "selectinput_1",
+              "name": "Cage Type",
+              "kind": "SelectInput",
+              "properties": {
+                "dataType": {
+                  "expr": "DataTypes_datatypes_1.CageTypeType"
+                },
+                "values": [
+                  "None",
+                  "Small",
+                  "Large",
+                  "Tiny",
+                  "Open"
+                ]
+              },
+              "elements": []
+            },
+            {
+              "id": "button_1",
+              "name": "Button 1",
+              "kind": "Button",
+              "properties": {
+                "content": "Reset Species",
+                "appearance": "outline",
+                "action": {
+                  "expr": "Reset(BeetleSpecies)"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "truefalseinput_1",
+              "name": "Can Fly",
+              "kind": "TrueFalseInput",
+              "properties": {
+                "dataType": {
+                  "expr": "DataTypes_datatypes_1.CanFlyType1"
+                }
+              },
               "elements": []
             },
             {
@@ -39,7 +107,111 @@
               "name": "Text 2",
               "kind": "Text",
               "properties": {
-                "content": "All about insects and other wiggly creatures"
+                "content": {
+                  "expr": "`All about insects and other ${CanFly.value ? 'flying' : 'wiggly'} creatures`"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "text_3",
+              "name": "Text 3",
+              "kind": "Text",
+              "properties": {
+                "content": {
+                  "expr": "'You are ' + Func1.Message(4)"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "form_1",
+              "name": "Beetle Details",
+              "kind": "Form",
+              "properties": {
+                "label": "Beetle Details",
+                "keyAction": {
+                  "expr": "Log('Key pressed', $key)"
+                }
+              },
+              "elements": [
+                {
+                  "id": "text_4",
+                  "name": "Text 4",
+                  "kind": "Text",
+                  "properties": {
+                    "content": "Tell us about your beetle"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "textinput_2",
+                  "name": "Species",
+                  "kind": "TextInput",
+                  "properties": {},
+                  "elements": []
+                },
+                {
+                  "id": "numberinput_2",
+                  "name": "Wingspan",
+                  "kind": "NumberInput",
+                  "properties": {
+                    "initialValue": 21
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "truefalseinput_2",
+                  "name": "IsGreen",
+                  "kind": "TrueFalseInput",
+                  "properties": {},
+                  "elements": []
+                },
+                {
+                  "id": "text_6",
+                  "name": "Form Summary",
+                  "kind": "Text",
+                  "properties": {
+                    "content": {
+                      "expr": "\"Your beetle is a \" + $form.value.Species + \" modified: \" + $form.modified + Species.modified + Wingspan.modified + IsGreen.modified"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "button_2",
+                  "name": "Button 2",
+                  "kind": "Button",
+                  "properties": {
+                    "content": "Reset",
+                    "appearance": "outline",
+                    "action": {
+                      "expr": "$form.Reset()"
+                    }
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "text_5",
+              "name": "Beetle Details Summary",
+              "kind": "Text",
+              "properties": {
+                "content": {
+                  "expr": "BeetleDetails"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "text_7",
+              "name": "Beetle Details Updates",
+              "kind": "Text",
+              "properties": {
+                "content": {
+                  "expr": "BeetleDetails.updates"
+                }
               },
               "elements": []
             },
@@ -80,6 +252,102 @@
             "description": "Whether the beetle is green"
           },
           "elements": []
+        },
+        {
+          "id": "numbertype_2",
+          "name": "WingspanType",
+          "kind": "NumberType",
+          "properties": {
+            "description": "Wingspan in metres"
+          },
+          "elements": []
+        },
+        {
+          "id": "texttype_5",
+          "name": "Species Type",
+          "kind": "TextType",
+          "properties": {
+            "description": "Species of beetle",
+            "minLength": 3,
+            "required": true,
+            "maxLength": 15
+          },
+          "elements": [
+            {
+              "id": "rule_3",
+              "name": "The Liverpool Rule",
+              "kind": "Rule",
+              "properties": {
+                "description": "Anything but Weevil",
+                "formula": {
+                  "expr": "$item !== 'Weevil'"
+                }
+              },
+              "elements": []
+            }
+          ]
+        },
+        {
+          "id": "texttype_6",
+          "name": "Cage Type Type",
+          "kind": "TextType",
+          "properties": {
+            "description": "What type of cage it needs",
+            "minLength": 3,
+            "required": true,
+            "maxLength": 15
+          },
+          "elements": [
+            {
+              "id": "rule_4",
+              "name": "The Liverpool Rule",
+              "kind": "Rule",
+              "properties": {
+                "description": "Anything but Tiny",
+                "formula": {
+                  "expr": "$item !== 'Tiny'"
+                }
+              },
+              "elements": []
+            }
+          ]
+        },
+        {
+          "id": "choicetype_1",
+          "name": "Cage Options Type",
+          "kind": "ChoiceType",
+          "properties": {
+            "values": [
+              "Big",
+              "Small",
+              "Tiny",
+              "Minuscule"
+            ]
+          },
+          "elements": []
+        },
+        {
+          "id": "truefalsetype_1",
+          "name": "Can Fly Type 1",
+          "kind": "TrueFalseType",
+          "properties": {
+            "required": true,
+            "description": "Well...can it take off and land?"
+          },
+          "elements": [
+            {
+              "id": "rule_2",
+              "name": "Must fly Rule",
+              "kind": "Rule",
+              "properties": {
+                "description": "Must be able to fly",
+                "formula": {
+                  "expr": "$item === true"
+                }
+              },
+              "elements": []
+            }
+          ]
         },
         {
           "id": "recordtype_1",
@@ -200,6 +468,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "filefolder_1",
+      "name": "File Folder 1",
+      "kind": "FileFolder",
+      "properties": {},
+      "elements": []
     }
   ]
 }
