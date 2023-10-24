@@ -31,7 +31,7 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Green Beetles!!!!",
+                "content": "Giant Green Beetles!!!",
                 "color": "green",
                 "fontSize": 55
               },
@@ -249,7 +249,7 @@
           "name": "Greenness",
           "kind": "TrueFalseType",
           "properties": {
-            "description": "Whether the beetle is green"
+            "description": "Whether the beetle is green or not"
           },
           "elements": []
         },
@@ -475,6 +475,12 @@
       "kind": "FileFolder",
       "properties": {},
       "elements": []
+    },
+    {
+      "id": "_TOOLS",
+      "name": "Tools",
+      "kind": "ToolFolder",
+      "properties": {}
     }
   ]
 }

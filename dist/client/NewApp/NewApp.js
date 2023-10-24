@@ -1,48 +1,51 @@
-const runtimeUrl = `${window.location.origin}/runtime/runtime.js`
+const runtimeUrl = 'https://cdn.jsdelivr.net/gh/rileydog16/elemento-runtime@23f8cee/runtime.js'
 const Elemento = await import(runtimeUrl)
 const {React} = Elemento
 const {importModule, importHandlers} = Elemento
-const Func1 = await import('./files/Func1.js').then(...importHandlers('*'))
+const Func1 = await import('../files/Func1.js').then(...importHandlers('*'))
 
 const {types: {ChoiceType, DateType, ListType, NumberType, DecimalType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
 
 // DataTypes_datatypes_1.js
-const Greenness = new TrueFalseType('Greenness', {description: 'Whether the beetle is green', required: false})
-const WingspanType = new NumberType('WingspanType', {description: 'Wingspan in metres', required: false})
-const SpeciesType = new TextType('Species Type', {description: 'Species of beetle', required: true, minLength: 3, maxLength: 15}, [
-    new Rule('The Liverpool Rule', $item => $item !== 'Weevil', {description: 'Anything but Weevil'})
-])
-const CageTypeType = new TextType('Cage Type Type', {description: 'What type of cage it needs', required: true, minLength: 3, maxLength: 15}, [
-    new Rule('The Liverpool Rule', $item => $item !== 'Tiny', {description: 'Anything but Tiny'})
-])
-const CageOptionsType = new ChoiceType('Cage Options Type', {required: false, values: ['Big', 'Small', 'Tiny', 'Minuscule'], valueNames: []})
-const CanFlyType1 = new TrueFalseType('Can Fly Type 1', {description: 'Well...can it take off and land?', required: true}, [
-    new Rule('Must fly Rule', $item => $item === true, {description: 'Must be able to fly'})
-])
-const Place = new RecordType('Place', {required: false}, [], [
-    new TextType('Name', {required: false}),
-    new TextType('Location', {description: 'Where is it?', required: false, maxLength: 10}, [
-        new Rule('The Liverpool Rule', $item => $item !== 'Liverpool', {description: 'Anywhere but Liverpool'})
-    ]),
-    new TrueFalseType('Visited', {basedOn: Greenness, description: 'Have we been there?', required: true}),
-    new NumberType('Population', {description: "How many adults live there" + Date.now(), required: false, min: 10}),
-    new DateType('Date Type 1', {description: 'This weeks', required: false}),
-    new ChoiceType('Colours', {description: 'Colours available', required: false, values: ['red', 'green', 'black'], valueNames: []}),
-    new RecordType('Address', {description: 'How to find it', required: false}, [], [
-        new TextType('Street', {description: Elemento.codeGenerationError(`Flannel`, 'Unknown names: Flannel'), required: false}),
-        new TextType('Town', {required: false, minLength: Elemento.codeGenerationError(`x + 3`, 'Unknown names: x')})
-    ])
-])
+const DataTypes_datatypes_1 = (() => {
 
-const DataTypes_datatypes_1 = {
-    Greenness,
-    WingspanType,
-    SpeciesType,
-    CageTypeType,
-    CageOptionsType,
-    CanFlyType1,
-    Place
-}
+    const Greenness = new TrueFalseType('Greenness', {description: 'Whether the beetle is green or not', required: false})
+    const WingspanType = new NumberType('WingspanType', {description: 'Wingspan in metres', required: false})
+    const SpeciesType = new TextType('Species Type', {description: 'Species of beetle', required: true, minLength: 3, maxLength: 15}, [
+        new Rule('The Liverpool Rule', $item => $item !== 'Weevil', {description: 'Anything but Weevil'})
+    ])
+    const CageTypeType = new TextType('Cage Type Type', {description: 'What type of cage it needs', required: true, minLength: 3, maxLength: 15}, [
+        new Rule('The Liverpool Rule', $item => $item !== 'Tiny', {description: 'Anything but Tiny'})
+    ])
+    const CageOptionsType = new ChoiceType('Cage Options Type', {required: false, values: ['Big', 'Small', 'Tiny', 'Minuscule'], valueNames: []})
+    const CanFlyType1 = new TrueFalseType('Can Fly Type 1', {description: 'Well...can it take off and land?', required: true}, [
+        new Rule('Must fly Rule', $item => $item === true, {description: 'Must be able to fly'})
+    ])
+    const Place = new RecordType('Place', {required: false}, [], [
+        new TextType('Name', {required: false}),
+        new TextType('Location', {description: 'Where is it?', required: false, maxLength: 10}, [
+            new Rule('The Liverpool Rule', $item => $item !== 'Liverpool', {description: 'Anywhere but Liverpool'})
+        ]),
+        new TrueFalseType('Visited', {basedOn: Greenness, description: 'Have we been there?', required: true}),
+        new NumberType('Population', {description: "How many adults live there" + Date.now(), required: false, min: 10}),
+        new DateType('Date Type 1', {description: 'This weeks', required: false}),
+        new ChoiceType('Colours', {description: 'Colours available', required: false, values: ['red', 'green', 'black'], valueNames: []}),
+        new RecordType('Address', {description: 'How to find it', required: false}, [], [
+            new TextType('Street', {description: Elemento.codeGenerationError(`Flannel`, 'Unknown names: Flannel'), required: false}),
+            new TextType('Town', {required: false, minLength: Elemento.codeGenerationError(`x + 3`, 'Unknown names: x')})
+        ])
+    ])
+
+    return {
+        Greenness,
+        WingspanType,
+        SpeciesType,
+        CageTypeType,
+        CageOptionsType,
+        CanFlyType1,
+        Place
+    }
+})()
 
 // MainPage.js
 function MainPage_BeetleDetails(props) {
@@ -69,7 +72,7 @@ function MainPage_BeetleDetails(props) {
 
 
 MainPage_BeetleDetails.State = class MainPage_BeetleDetails_State extends Elemento.components.BaseFormState {
-    fieldNames = ['Species', 'Wingspan', 'IsGreen']
+    ownFieldNames = ['Species', 'Wingspan', 'IsGreen']
 }
 
 
@@ -92,7 +95,7 @@ function MainPage(props) {
     }, [])
 
     return React.createElement(Page, {id: props.path},
-        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'green'}, 'Giant Green Beetles!!!!'),
+        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'green'}, 'Giant Green Beetles!!!'),
         React.createElement(TextInput, {path: pathWith('BeetleSpecies'), label: 'Beetle Species', width: '100%'}),
         React.createElement(NumberInput, {path: pathWith('Wingspan'), label: 'Wingspan'}),
         React.createElement(SelectInput, {path: pathWith('CageType'), label: 'Cage Type', values: ['None', 'Small', 'Large', 'Tiny', 'Open']}),
