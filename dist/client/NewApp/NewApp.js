@@ -1,4 +1,4 @@
-const runtimeUrl = 'https://cdn.jsdelivr.net/gh/rileydog16/elemento-runtime@23f8cee/runtime.js'
+const runtimeUrl = 'https://elemento.online/lib/runtime.js'
 const Elemento = await import(runtimeUrl)
 const {React} = Elemento
 const {importModule, importHandlers} = Elemento
