@@ -470,13 +470,6 @@
       ]
     },
     {
-      "id": "filefolder_1",
-      "name": "File Folder 1",
-      "kind": "FileFolder",
-      "properties": {},
-      "elements": []
-    },
-    {
       "id": "_TOOLS",
       "name": "Tools",
       "kind": "ToolFolder",
