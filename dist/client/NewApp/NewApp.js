@@ -95,7 +95,7 @@ function MainPage(props) {
     }, [])
 
     return React.createElement(Page, {id: props.path},
-        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'green'}, 'Giant Green Beetles!!'),
+        React.createElement(TextElement, {path: pathWith('Text1'), fontSize: 55, color: 'green'}, 'Giant Green Beetles!'),
         React.createElement(TextInput, {path: pathWith('BeetleSpecies'), label: 'Beetle Species', width: '100%'}),
         React.createElement(NumberInput, {path: pathWith('Wingspan'), label: 'Wingspan'}),
         React.createElement(SelectInput, {path: pathWith('CageType'), label: 'Cage Type', values: ['None', 'Small', 'Large', 'Tiny', 'Open']}),
