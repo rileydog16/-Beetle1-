@@ -6,8 +6,8 @@ const Func1 = await import('../files/Func1.js').then(...importHandlers('*'))
 
 const {types: {ChoiceType, DateType, ListType, NumberType, DecimalType, RecordType, TextType, TrueFalseType, Rule}} = Elemento
 
-// DataTypes_datatypes_1.js
-const DataTypes_datatypes_1 = (() => {
+// DataTypes.js
+const DataTypes = (() => {
 
     const Greenness = new TrueFalseType('Greenness', {description: 'Whether the beetle is green or not', required: false})
     const WingspanType = new NumberType('WingspanType', {description: 'Wingspan in metres', required: false})
@@ -81,10 +81,10 @@ function MainPage(props) {
     const {Page, TextElement, TextInput, NumberInput, SelectInput, Button, TrueFalseInput, Image} = Elemento.components
     const {Log} = Elemento.globalFunctions
     const {Reset} = Elemento.appFunctions
-    const BeetleSpecies = Elemento.useObjectState(pathWith('BeetleSpecies'), new TextInput.State({dataType: DataTypes_datatypes_1.SpeciesType}))
-    const Wingspan = Elemento.useObjectState(pathWith('Wingspan'), new NumberInput.State({dataType: DataTypes_datatypes_1.WingspanType}))
-    const CageType = Elemento.useObjectState(pathWith('CageType'), new SelectInput.State({dataType: DataTypes_datatypes_1.CageTypeType}))
-    const CanFly = Elemento.useObjectState(pathWith('CanFly'), new TrueFalseInput.State({dataType: DataTypes_datatypes_1.CanFlyType1}))
+    const BeetleSpecies = Elemento.useObjectState(pathWith('BeetleSpecies'), new TextInput.State({dataType: Elemento.codeGenerationError(`DataTypes_datatypes_1.SpeciesType`, 'Unknown names: DataTypes_datatypes_1')}))
+    const Wingspan = Elemento.useObjectState(pathWith('Wingspan'), new NumberInput.State({dataType: Elemento.codeGenerationError(`DataTypes_datatypes_1.WingspanType`, 'Unknown names: DataTypes_datatypes_1')}))
+    const CageType = Elemento.useObjectState(pathWith('CageType'), new SelectInput.State({dataType: Elemento.codeGenerationError(`DataTypes_datatypes_1.CageTypeType`, 'Unknown names: DataTypes_datatypes_1')}))
+    const CanFly = Elemento.useObjectState(pathWith('CanFly'), new TrueFalseInput.State({dataType: Elemento.codeGenerationError(`DataTypes_datatypes_1.CanFlyType1`, 'Unknown names: DataTypes_datatypes_1')}))
     const BeetleDetails = Elemento.useObjectState(pathWith('BeetleDetails'), new MainPage_BeetleDetails.State({}))
     const Button1_action = React.useCallback(() => {
         Reset(BeetleSpecies)
