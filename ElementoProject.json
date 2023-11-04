@@ -31,7 +31,7 @@
               "name": "Text 1",
               "kind": "Text",
               "properties": {
-                "content": "Giant Green Beetles!",
+                "content": "Giant Green Beetles!!!",
                 "color": "green",
                 "fontSize": 55
               },

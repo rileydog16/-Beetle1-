@@ -13,8 +13,8 @@
 </head>
 <body>
 <script type="module">
-    import {runAppFromWindowUrl} from 'https://elemento.online/lib/runtime.js'
-    runAppFromWindowUrl()
+    window.elementoRuntimeUrl = (location.host.match(/^localhost:/)) ? location.origin + '/lib/runtime.js' : 'https://elemento.online/lib/runtime.js'
+    import(window.elementoRuntimeUrl).then( runtime => runtime.runAppFromWindowUrl() )
 </script>
 </body>
 </html>
